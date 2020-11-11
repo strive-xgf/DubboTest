@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+
+    <!-- 一、springmvc配置 -->
+    <context:component-scan base-package="com.xgf.controller"></context:component-scan>
+    <mvc:annotation-driven></mvc:annotation-driven>
+
+    <!-- 二、dubbo的消费方配置：3个 -->
+    <!-- 1.根节点，定义dubbo消费方服务名称 -->
+    <dubbo:application name="dubbodemo_consumer"></dubbo:application>
+
+    <!-- 2.配置Zookeeper连接（当前zookeeper部署地址是本机ip的localhost） -->
+    <dubbo:registry address="zookeeper://localhost" port="2181"></dubbo:registry>
+
+    <!-- 3.扫描dubbo消费注解：@Reference -->
+    <dubbo:annotation package="com.xgf.controller"></dubbo:annotation>
+<!--    让当前去获取provider的实现类对象 必须保护相同的id-->
+<!--    <dubbo:reference interface="com.wzx.service.IHelloWordService"-->
+<!--       id="helloWordService"/>-->
+</beans>
