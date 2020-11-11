@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- dubbo的提供方配置: 4个 -->
+
+    <!-- 1. 根节点，定义提供方服务名称（唯一的） 访问的时候先找根节点   -->
+    <dubbo:application name="dubbodemo_provider"></dubbo:application>
+
+    <!-- 2. 配置Zookeeper连接
+            address的地址就是 zookeeper://ip地址  （ip地址：是zookeeper部署的电脑ip）
+            2181为zookeeper的默认端口（可以修改，修改zookeeper核心配置文件）
+     -->
+    <dubbo:registry address="zookeeper://localhost" port="2181"></dubbo:registry>
+    <!--<dubbo:registry address="zookeeper://192.168.21.45" port="2181"></dubbo:registry>-->
+
+    <!-- 3.定义dubbo协议
+            约定消费方和提供方之间传输格式，dubbo推荐的协议：dubbo协议
+           dubbo协议的访问方法  【dubbo://ip:port/类/方法】（二进制传输协议）
+    -->
+    <dubbo:protocol name="dubbo" port="20880"></dubbo:protocol>
+
+    <!-- 4.扫描dubbo提供方注解：也就是@Service注解（dubbo的）
+           导入@Service注解的时候要注意，有两个service，一个是spring的,另一个是dubbo的
+           我们需要导入dubbo的@Service注解（注入，让其可以被RBC调用）
+    -->
+    <dubbo:annotation package="com.xgf.service"></dubbo:annotation>
+
+<!--    <bean id="helloWordService" class="com.xgf.service.impl.HelloServiceImpl"/>-->
+<!-- 将helloWordService对应的对象，成为可以被rpc调用-->
+<!--    <dubbo:service interface="com.xgf.service.IHelloWordService" ref="helloWordService"/>-->
+</beans>
