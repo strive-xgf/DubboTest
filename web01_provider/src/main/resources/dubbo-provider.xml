@@ -16,7 +16,9 @@
             address的地址就是 zookeeper://ip地址  （ip地址：是zookeeper部署的电脑ip）
             2181为zookeeper的默认端口（可以修改，修改zookeeper核心配置文件）
      -->
-    <dubbo:registry address="zookeeper://localhost" port="2181"></dubbo:registry>
+    <!-- 改为自己的ip地址 -->
+    <dubbo:registry address="zookeeper://192.168.21.45" port="2181"></dubbo:registry>
+    <!--<dubbo:registry address="zookeeper://localhost" port="2181"></dubbo:registry>-->
     <!--<dubbo:registry address="zookeeper://192.168.21.45" port="2181"></dubbo:registry>-->
 
     <!-- 3.定义dubbo协议

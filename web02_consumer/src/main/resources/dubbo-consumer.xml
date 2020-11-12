@@ -15,7 +15,9 @@
     <dubbo:application name="dubbodemo_consumer"></dubbo:application>
 
     <!-- 2.配置Zookeeper连接（当前zookeeper部署地址是本机ip的localhost） -->
-    <dubbo:registry address="zookeeper://localhost" port="2181"></dubbo:registry>
+    <!-- 改为自己电脑ip地址 -->
+    <dubbo:registry address="zookeeper://192.168.21.45" port="2181"></dubbo:registry>
+    <!--<dubbo:registry address="zookeeper://localhost" port="2181"></dubbo:registry>-->
 
     <!-- 3.扫描dubbo消费注解：@Reference -->
     <dubbo:annotation package="com.xgf.controller"></dubbo:annotation>
