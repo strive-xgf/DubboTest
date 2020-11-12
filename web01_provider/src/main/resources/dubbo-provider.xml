@@ -31,7 +31,8 @@
     -->
     <dubbo:annotation package="com.xgf.service"></dubbo:annotation>
 
-<!--    <bean id="helloWordService" class="com.xgf.service.impl.HelloServiceImpl"/>-->
-<!-- 将helloWordService对应的对象，成为可以被rpc调用-->
-<!--    <dubbo:service interface="com.xgf.service.IHelloWordService" ref="helloWordService"/>-->
+    <!--&lt;!&ndash; 使用xml方式配置 &ndash;&gt;
+     <bean id="helloWordService" class="com.xgf.service.impl.HelloServiceImpl"/>
+    &lt;!&ndash; 将helloWordService对应的对象，成为可以被rpc调用 &ndash;&gt;
+     <dubbo:service interface="com.xgf.service.IHelloWordService" ref="helloWordService"/>-->
 </beans>

@@ -19,7 +19,8 @@
 
     <!-- 3.扫描dubbo消费注解：@Reference -->
     <dubbo:annotation package="com.xgf.controller"></dubbo:annotation>
-<!--    让当前去获取provider的实现类对象 必须保护相同的id-->
-<!--    <dubbo:reference interface="com.wzx.service.IHelloWordService"-->
-<!--       id="helloWordService"/>-->
+
+    <!-- 使用xml注入 -->
+    <!--让当前去获取provider的实现类对象 必须保护相同的id-->
+    <!--<dubbo:reference interface="com.xgf.service.IHelloWordService" id="helloWordService"/>-->
 </beans>

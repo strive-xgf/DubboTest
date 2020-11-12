@@ -17,8 +17,10 @@ public class MyController {
     //2 使用注入，但是不使用spring的autowire,而使用是dubbo的@Service配对的 @Reference注解
 
 
+    //使用xml注入
     //@Autowired
     // @Qualifier("helloWordService")
+    //check = true,loadbalance = "random" 配置负载均衡，配置在消费方（默认值random）
     @Reference(check = true,loadbalance = "random")
     IHelloWordService iHelloWordService;    //去provider取对象，用@Reference注解
 
